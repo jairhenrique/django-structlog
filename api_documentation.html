@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API documentation &mdash; django-structlog 6.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Events and Metadata" href="events.html" />
+    <link rel="prev" title="Commands" href="commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            django-structlog
+          </a>
+              <div class="version">
+                6.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="celery.html">Celery Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commands.html">Commands</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-django_structlog">django_structlog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-django_structlog.celery">django_structlog.celery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events and Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_outputs.html">Example outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running_tests.html">Running the tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo app</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change Log</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade_guide.html">Upgrade Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">django-structlog</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_documentation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<h1>API documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline"></a></h1>
+<section id="module-django_structlog">
+<span id="django-structlog"></span><h2>django_structlog<a class="headerlink" href="#module-django_structlog" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">django-structlog</span></code> is a structured logging integration for <code class="docutils literal notranslate"><span class="pre">Django</span></code> project using <code class="docutils literal notranslate"><span class="pre">structlog</span></code>.</p>
+<span class="target" id="module-django_structlog.middlewares"></span><dl class="py class">
+<dt class="sig sig-object py" id="django_structlog.middlewares.RequestMiddleware">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">django_structlog.middlewares.</span></span><span class="sig-name descname"><span class="pre">RequestMiddleware</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">get_response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#django_structlog.middlewares.RequestMiddleware" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_structlog.middlewares.request.BaseRequestMiddleWare</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">RequestMiddleware</span></code> adds request metadata to <code class="docutils literal notranslate"><span class="pre">structlog</span></code>’s logger context automatically.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="c1"># ...</span>
+<span class="gp">... </span>    <span class="s1">&#39;django_structlog.middlewares.RequestMiddleware&#39;</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="django_structlog.middlewares.RequestMiddleware.async_capable">
+<span class="sig-name descname"><span class="pre">async_capable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#django_structlog.middlewares.RequestMiddleware.async_capable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="django_structlog.middlewares.RequestMiddleware.sync_capable">
+<span class="sig-name descname"><span class="pre">sync_capable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#django_structlog.middlewares.RequestMiddleware.sync_capable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-django_structlog.signals"></span><dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.signals.bind_extra_request_failed_metadata">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.signals.</span></span><span class="sig-name descname"><span class="pre">bind_extra_request_failed_metadata</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.signals.bind_extra_request_failed_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to add extra <code class="docutils literal notranslate"><span class="pre">structlog</span></code> bindings from <code class="docutils literal notranslate"><span class="pre">django</span></code>’s failed request and exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> – the logger to bind more metadata or override existing bound metadata</p></li>
+<li><p><strong>exception</strong> – the exception resulting of the request</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.contrib.sites.shortcuts</span> <span class="kn">import</span> <span class="n">get_current_site</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">bind_extra_request_failed_metadata</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">bind_domain</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">current_site</span> <span class="o">=</span> <span class="n">get_current_site</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">bind_contextvars</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">current_site</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.signals.bind_extra_request_finished_metadata">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.signals.</span></span><span class="sig-name descname"><span class="pre">bind_extra_request_finished_metadata</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.signals.bind_extra_request_finished_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to add extra <code class="docutils literal notranslate"><span class="pre">structlog</span></code> bindings from <code class="docutils literal notranslate"><span class="pre">django</span></code>’s finished request and response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> – the logger to bind more metadata or override existing bound metadata</p></li>
+<li><p><strong>response</strong> – the response resulting of the request</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.contrib.sites.shortcuts</span> <span class="kn">import</span> <span class="n">get_current_site</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">bind_extra_request_finished_metadata</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">bind_domain</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">current_site</span> <span class="o">=</span> <span class="n">get_current_site</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">bind_contextvars</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">current_site</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.signals.bind_extra_request_metadata">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.signals.</span></span><span class="sig-name descname"><span class="pre">bind_extra_request_metadata</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.signals.bind_extra_request_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to add extra <code class="docutils literal notranslate"><span class="pre">structlog</span></code> bindings from <code class="docutils literal notranslate"><span class="pre">django</span></code>’s request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logger</strong> – the logger to bind more metadata or override existing bound metadata</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.contrib.sites.shortcuts</span> <span class="kn">import</span> <span class="n">get_current_site</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">bind_extra_request_metadata</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">bind_domain</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">current_site</span> <span class="o">=</span> <span class="n">get_current_site</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">bind_contextvars</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">current_site</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.signals.update_failure_response">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.signals.</span></span><span class="sig-name descname"><span class="pre">update_failure_response</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.signals.update_failure_response" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to update response failure response before it is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> – the request returned by the view</p></li>
+<li><p><strong>response</strong> – the response resulting of the request</p></li>
+<li><p><strong>logger</strong> – the logger</p></li>
+<li><p><strong>exception</strong> – the exception</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">update_failure_response</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">add_request_id_to_error_response</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">context</span> <span class="o">=</span> <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">get_merged_contextvars</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">response</span><span class="p">[</span><span class="s1">&#39;X-Request-ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">context</span><span class="p">[</span><span class="s2">&quot;request_id&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-django_structlog.celery">
+<span id="django-structlog-celery"></span><h2>django_structlog.celery<a class="headerlink" href="#module-django_structlog.celery" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">celery</span></code> integration for <code class="docutils literal notranslate"><span class="pre">django_structlog</span></code>.</p>
+<span class="target" id="module-django_structlog.celery.steps"></span><dl class="py class">
+<dt class="sig sig-object py" id="django_structlog.celery.steps.DjangoStructLogInitStep">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">django_structlog.celery.steps.</span></span><span class="sig-name descname"><span class="pre">DjangoStructLogInitStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#django_structlog.celery.steps.DjangoStructLogInitStep" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">celery.bootsteps.celery.bootsteps.Step</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">celery</span></code> worker boot step to initialize <code class="docutils literal notranslate"><span class="pre">django_structlog</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">celery</span> <span class="kn">import</span> <span class="n">Celery</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog.celery.steps</span> <span class="kn">import</span> <span class="n">DjangoStructLogInitStep</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span> <span class="o">=</span> <span class="n">Celery</span><span class="p">(</span><span class="s2">&quot;django_structlog_demo_project&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">steps</span><span class="p">[</span><span class="s1">&#39;worker&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">DjangoStructLogInitStep</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="django_structlog.celery.steps.DjangoStructLogInitStep.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django_structlog.celery.steps.DjangoStructLogInitStep'</span></em><a class="headerlink" href="#django_structlog.celery.steps.DjangoStructLogInitStep.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-django_structlog.celery.signals"></span><dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.celery.signals.bind_extra_task_metadata">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.celery.signals.</span></span><span class="sig-name descname"><span class="pre">bind_extra_task_metadata</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.celery.signals.bind_extra_task_metadata" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to add extra <code class="docutils literal notranslate"><span class="pre">structlog</span></code> bindings from <code class="docutils literal notranslate"><span class="pre">celery</span></code>’s task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task</strong> – the celery task being run</p></li>
+<li><p><strong>logger</strong> – the logger to bind more metadata or override existing bound metadata</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog.celery</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">bind_extra_task_metadata</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">receiver_bind_extra_request_metadata</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">bind_contextvars</span><span class="p">(</span><span class="n">correlation_id</span><span class="o">=</span><span class="n">task</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">correlation_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.celery.signals.modify_context_before_task_publish">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.celery.signals.</span></span><span class="sig-name descname"><span class="pre">modify_context_before_task_publish</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.celery.signals.modify_context_before_task_publish" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to modify context passed over to <code class="docutils literal notranslate"><span class="pre">celery</span></code> task’s context. You must modify the <code class="docutils literal notranslate"><span class="pre">context</span></code> dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>context</strong> – the context dict that will be passed over to the task runner’s logger</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog.celery</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">modify_context_before_task_publish</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">receiver_modify_context_before_task_publish</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">keys_to_keep</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;request_id&quot;</span><span class="p">,</span> <span class="s2">&quot;parent_task_id&quot;</span><span class="p">}</span>
+<span class="gp">... </span>    <span class="n">new_dict</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>        <span class="n">key_to_keep</span><span class="p">:</span> <span class="n">context</span><span class="p">[</span><span class="n">key_to_keep</span><span class="p">]</span>
+<span class="gp">... </span>        <span class="k">for</span> <span class="n">key_to_keep</span> <span class="ow">in</span> <span class="n">keys_to_keep</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">key_to_keep</span> <span class="ow">in</span> <span class="n">context</span>
+<span class="gp">... </span>    <span class="p">}</span>
+<span class="gp">... </span>    <span class="n">context</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="django_structlog.celery.signals.pre_task_succeeded">
+<span class="sig-prename descclassname"><span class="pre">django_structlog.celery.signals.</span></span><span class="sig-name descname"><span class="pre">pre_task_succeeded</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.dispatch.dispatcher.Signal</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#django_structlog.celery.signals.pre_task_succeeded" title="Permalink to this definition"></a></dt>
+<dd><p>Signal to add <code class="docutils literal notranslate"><span class="pre">structlog</span></code> bindings from <code class="docutils literal notranslate"><span class="pre">celery</span></code>’s successful task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> – the logger to bind more metadata or override existing bound metadata</p></li>
+<li><p><strong>result</strong> – result of the succeeding task</p></li>
+</ul>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django.dispatch</span> <span class="kn">import</span> <span class="n">receiver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">django_structlog.celery</span> <span class="kn">import</span> <span class="n">signals</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">structlog</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@receiver</span><span class="p">(</span><span class="n">signals</span><span class="o">.</span><span class="n">pre_task_succeeded</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">receiver_pre_task_succeeded</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span> <span class="n">signal</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">structlog</span><span class="o">.</span><span class="n">contextvars</span><span class="o">.</span><span class="n">bind_contextvars</span><span class="p">(</span><span class="n">result</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="commands.html" class="btn btn-neutral float-left" title="Commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="events.html" class="btn btn-neutral float-right" title="Events and Metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Jules Robichaud-Gagnon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
